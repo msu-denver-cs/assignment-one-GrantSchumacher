@@ -1,0 +1,2 @@
+class CarForm < ApplicationRecord
+end
