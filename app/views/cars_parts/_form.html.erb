@@ -1,0 +1,43 @@
+<%= form_with(model: cars_part, local: true) do |form| %>
+  <% if cars_part.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cars_part.errors.count, "error") %> prohibited this cars_part from being saved:</h2>
+
+      <ul>
+      <% cars_part.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :make %>
+    <%= form.text_field :make, :placeholder => "Name" %>
+    <%= form.text_field :make, :placeholder => "Country" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model, :placeholder => "Model" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vin %>
+    <%= form.text_field :vin, :placeholder => "Vin" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Parts", class: 'control-label'%>
+      <div class="controls">
+        <%= form.select(:parts, options_for_select([['Steering Wheel', 'Steering Wheel'], ['Engine','Engine'], ['Doors','Doors'], ['Headlights','Headlights'], ['Airbags','Airbags'], ['Air Conditioning','Air Conditioning']]), {:include_blank => true})%>
+      </div>
+    </div>
+
+   
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
